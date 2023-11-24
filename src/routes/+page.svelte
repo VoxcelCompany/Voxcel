@@ -1,6 +1,7 @@
 <script>
 	import 'animate.css';
 	import vEmoji from '$lib/images/v.svg';
+	import buildingEmoji from '$lib/images/building.png';
 </script>
 
 <svelte:head>
@@ -14,6 +15,7 @@
 	<h2 class="animate__animated animate__flipInX">Welcome to the Voxcel company</h2>
 
 	<div class="description animate__animated animate__fadeIn">
+		<img class="leftEmoji" src={buildingEmoji} alt="Building Emoji" />
 		<h3>
 			Our company is being built...
 			<br />
@@ -21,7 +23,7 @@
 			<br />
 			We've so many projects to share with you!
 		</h3>
-		<img src={vEmoji} alt="Voxcel" />
+		<img class="rightEmoji" src={vEmoji} alt="V Sign Emoji" />
 	</div>
 </section>
 
@@ -42,8 +44,8 @@
 		width: 100%;
 		text-align: center;
 		font-size: 10rem;
-		background: linear-gradient(90deg, aliceblue, #0ba1ca, aliceblue);
-		text-shadow: 0 0 1em #0ba1ca, 0 0 0.2em blue;
+		background: linear-gradient(90deg, aliceblue, #a6ecff, aliceblue);
+		text-shadow: 0 0 1em #0ba1ca, 0 0 0.2em #00eeff;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
@@ -53,7 +55,7 @@
 		width: 100%;
 		text-align: center;
 		font-size: 3rem;
-		background: linear-gradient(90deg, #0680a2, #0ba1ca);
+		background: linear-gradient(10deg, #87e5ff, #ffffff);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
@@ -78,9 +80,20 @@
 		width: 100%;
 		text-align: center;
 		font-size: 1rem;
-		background: linear-gradient(90deg, #0680a2, #0ba1ca);
+		background: linear-gradient(180deg, #bfbfbf, #464646);
+		text-shadow: 0 0 2em #000000;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+	}
+
+	.leftEmoji {
+		height: 2rem;
+		margin-right: 0.7rem;
+	}
+
+	.rightEmoji {
+		height: 2rem;
+		margin-left: 0.1rem;
 	}
 
 	.animate__animated.animate__flipInX {

@@ -8,7 +8,7 @@
 <div class="app">
 	<img src={bg} alt="Voxcel" />
 
-	<Header />
+	<!-- <Header /> -->
 
 	<main>
 		<slot />

@@ -6,7 +6,7 @@
 	<footer>
 		<p>© 2023 Voxcel</p>
 		<span class="dot">&#183;</span>
-		<p>Project under development</p>
+		<p>Projects under development</p>
 		<span class="dot">&#183;</span>
 		<p><a href="mailto:julessorens@gmail.com">Contact</a></p>
 	</footer>
