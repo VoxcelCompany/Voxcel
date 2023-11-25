@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  stg_server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: ${DOCKER_IMAGE_NAME}
+    restart: unless-stopped
+    networks:
+      - vxl-traefik-n
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.services.${DOCKER_IMAGE_NAME}.loadbalancer.server.port=3000'
+
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-https.rule=Host(`stg.voxcel.fr`)'
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-https.entrypoints=websecure'
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-https.tls.certresolver=voxcelresolver'
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-https.service=${DOCKER_IMAGE_NAME}'
+
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.rule=Host(`stg.voxcel.fr`)'
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.entrypoints=web'
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.service=${DOCKER_IMAGE_NAME}'
+    environment:
+      - DOCKER_IMAGE_NAME
+
+networks:
+  vxl-traefik-n:
+    external: true
