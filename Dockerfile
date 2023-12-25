@@ -10,6 +10,7 @@ COPY . .
 
 RUN npm run build
 
+COPY --chown=node:node .env .env
 ENV NODE_ENV=production
 
 EXPOSE 3000

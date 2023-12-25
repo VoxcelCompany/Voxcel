@@ -2,6 +2,9 @@
 	import 'animate.css';
 	import vEmoji from '$lib/images/v.svg';
 	import buildingEmoji from '$lib/images/building.png';
+	import { PUBLIC_VERSION, PUBLIC_TAG } from '$env/static/public';
+
+	console.log(`${PUBLIC_VERSION}:${PUBLIC_TAG}`);
 </script>
 
 <svelte:head>

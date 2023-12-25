@@ -36,6 +36,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Staging environment
+      - name: Create .env file for staging
+        if: github.ref == 'refs/heads/main'
+        run: echo "${{ secrets.ENV_STG }}" > .env
+
+      # Production environment
+      - name: Create .env file for production
+        if: github.event_name == 'release' && github.ref_type == 'tag'
+        run: echo "${{ secrets.ENV_PRD }}" > .env
+
       - name: Login to Registry
         run: echo ${{ secrets.VXL_REG_PWD }} | docker login ${{ secrets.VXL_REG_URL }} -u ${{ secrets.VXL_REG_USR }} --password-stdin
 
