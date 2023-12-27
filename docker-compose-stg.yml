@@ -22,8 +22,8 @@ services:
       - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.entrypoints=web'
       - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.service=${DOCKER_IMAGE_NAME}'
 
-      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-https.middlewares=stg-ipwhitelist@docker'
-      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.middlewares=stg-ipwhitelist@docker'
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-https.middlewares=stg-ipwhitelist'
+      - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.middlewares=stg-ipwhitelist'
 
       - 'io.portainer.accesscontrol.teams=voxcel'
     environment:
