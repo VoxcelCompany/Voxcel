@@ -24,6 +24,8 @@ services:
 
       - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-https.middlewares=stg-ipwhitelist@docker'
       - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.middlewares=stg-ipwhitelist@docker'
+
+      - 'io.portainer.accesscontrol.teams=voxcel'
     environment:
       - DOCKER_IMAGE_NAME
 

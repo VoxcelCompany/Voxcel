@@ -21,6 +21,8 @@ services:
       - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.rule=Host(`voxcel.fr`, `www.voxcel.fr`)'
       - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.entrypoints=web'
       - 'traefik.http.routers.${DOCKER_IMAGE_NAME}-http.service=${DOCKER_IMAGE_NAME}'
+
+      - 'io.portainer.accesscontrol.teams=voxcel'
     environment:
       - DOCKER_IMAGE_NAME
 
